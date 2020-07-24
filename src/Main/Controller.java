@@ -37,6 +37,9 @@ public class Controller {
     private ToggleGroup serverGroup;
 
     @FXML
+    private ToggleGroup methodGroup;
+
+    @FXML
     private TextField username;
 
     @FXML
@@ -55,6 +58,7 @@ public class Controller {
         String start = "";
         String end = "";
         String server = "";
+        String method = "";
         String viewAs = "";
         String user = "";
         String pass = "";
@@ -70,6 +74,7 @@ public class Controller {
 
         viewAs = ((RadioButton) viewAsGroup.getSelectedToggle()).getText();
         server = ((RadioButton) serverGroup.getSelectedToggle()).getText();
+        method = ((RadioButton) methodGroup.getSelectedToggle()).getText();
 
         user = username.getText() == "" ? "" : username.getText();
         pass = password.getText() == "" ? "" : password.getText();
@@ -83,6 +88,7 @@ public class Controller {
         System.out.println(end);
         System.out.println(viewAs);
         System.out.println(server);
+        System.out.println(method);
         System.out.println(user);
         System.out.println(pass);
 
