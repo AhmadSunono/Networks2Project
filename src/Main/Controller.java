@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
 
+import Main.TableController.City;
+
 public class Controller {
 
     @FXML
@@ -167,24 +169,40 @@ public class Controller {
         System.out.println(user);
         System.out.println(pass);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Main/chart.fxml"));
+//        FXMLLoader pieLoader = new FXMLLoader(getClass().getResource("/Main/chart.fxml"));
+//
+//        stack.getChildren()
+//                .add((AnchorPane)pieLoader.load());
+//
+//
+//        ChartController chartController = pieLoader.getController();
+//
+//        HashMap<String, String> data = new HashMap<String, String>();
+//        data.put("nablus", "15");
+//        data.put("jerusalem", "15");
+//        data.put("tulkarm", "15");
+//        data.put("ramallah", "5");
+//        data.put("hebron", "50");
+//
+//
+//        chartController.displayData(data);
+
+
+        FXMLLoader tableLoader = new FXMLLoader(getClass().getResource("/Main/table.fxml"));
 
         stack.getChildren()
-                .add((AnchorPane)loader.load());
+                .add((AnchorPane)tableLoader.load());
 
+        TableController tableController = tableLoader.getController();
+        ArrayList<City> citiesData = new ArrayList<TableController.City>();
 
-        ChartController chartController = loader.getController();
+        citiesData.add(new City("Nablus", 70, 15));
+        citiesData.add(new City("Tulkarm", 50, 5));
+        citiesData.add(new City("Ramallah", 60, 6));
+        citiesData.add(new City("Hebron", 120, 1));
+        citiesData.add(new City("Jerusalem", 3, 0));
 
-        HashMap<String, String> data = new HashMap<String, String>();
-        data.put("nablus", "15");
-        data.put("jerusalem", "15");
-        data.put("tulkarm", "15");
-        data.put("ramallah", "5");
-        data.put("hebron", "50");
-
-
-        chartController.displayData(data);
-
+        tableController.setData(citiesData);
 
 
     }
